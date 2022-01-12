@@ -31,7 +31,7 @@ namespace PluginforReimbursement
                     Entity ApplicantRecord = service.Retrieve("systemuser", applicantID, new ColumnSet("parentsystemuserid"));/*<---Getting the student record with given ID.*/
                     ReimbursementRecord.Attributes["cre2e_manager"] = ApplicantRecord.Attributes["parentsystemuserid"];
 
-                    var managerID = ((Microsoft.Xrm.Sdk.EntityReference)(ApplicantRecord.Attributes["parentsystemuserid"])).Id; /*<---Getting ID from lookup.*/
+                    var managerID = ((Microsoft.Xrm.Sdk.EntityReference)(ApplicantRecord.Attributes["parentsystemuserid"])).Id; /*<---Getting ID from lookup.  */
 
                     /*<-----Fetching manager id----->*/
                     Entity managerRecord = service.Retrieve("systemuser", managerID, new ColumnSet("parentsystemuserid"));
